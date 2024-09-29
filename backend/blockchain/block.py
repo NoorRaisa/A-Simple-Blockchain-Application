@@ -1,7 +1,12 @@
 import time
 from backend.util.crypto_hash import crypto_hash
 
-
+GENESIS_DATA = {
+    'timestamp':1,
+    'last_hash':'genesis_last_hash',
+    'hash':'gensis_hash',
+    'data':[]
+}
 class Block:
     """
     Block: a unit of storage.
@@ -38,7 +43,13 @@ class Block:
         """
         generate the genesis block
         """
-        return Block(1, 'genesis_last_hash', 'genesis_hash', [])
+        # return Block(
+        #         GENESIS_DATA['timestamp'],
+        #         GENESIS_DATA['last_hash'],
+        #         GENESIS_DATA['hash'],
+        #         GENESIS_DATA['data']
+        # )
+        return Block(**GENESIS_DATA) #unpacks dictionary
 def main():
     # block=Block('foo')
     # print(block)
